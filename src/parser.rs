@@ -1270,7 +1270,6 @@ impl Parser {
                                     }
                                 };
                                 // Match the exponent part of the number.
-                                println!("Parse exp token: {:?}", self.peek_token());
                                 match self.next_token_no_skip() {
                                     Some(exp_token) => match exp_token {
                                         Token::Number(exp) => {
@@ -1278,12 +1277,12 @@ impl Parser {
                                             Ok(Value::Number(value))
                                         }
                                         _ => parser_err!(format!(
-                                            "Could not parse '{}E{}', missing exponet part",
+                                            "Could not parse '{}E{}', missing exponent part",
                                             t, exp_token
                                         )),
                                     },
                                     _ => parser_err!(format!(
-                                        "Could not parse '{}', missing exponet part",
+                                        "Could not parse '{}', missing exponent part",
                                         t,
                                     )),
                                 }
